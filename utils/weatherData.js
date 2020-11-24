@@ -9,9 +9,14 @@ const weatherData = (address, callback) => {
         // console.log(body)
         if(error){
             callback("cant fetch data from openWeatherMap api ", undefined)
-        }else{
+        }
+        else if(!body.name || !body.name || !body.name || !body.weather){
+            callback("Unable to find required data, try another response", undefined)
+        }
+        
+        else{
             return callback(undefined, {
-                temprature: body.main.temp,
+                temperature: body.main.temp,
                 description: body.weather[0].description,
                 cityName: body.name
             })

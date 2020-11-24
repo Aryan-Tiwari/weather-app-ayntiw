@@ -36,15 +36,15 @@ app.get('/weather', (req, res)=>{
         })
     }
 
-    weatherData(address, (error, {temprature, description, cityName})=>{
+    weatherData(address, (error, {temperature, description, cityName}={})=>{
         if(error){
             return res.send({
                 error
             })
         }
-        console.log(temprature, description, cityName);
+        console.log(temperature, description, cityName);
         res.send({
-            temprature,
+            temperature,
             description,
             cityName
         })
@@ -53,7 +53,9 @@ app.get('/weather', (req, res)=>{
 
 
 app.get('*', (req, res)=>{
-    res.send('page not found')
+    res.render('404', {
+        title: 'Page not found'
+    })
 })
 
 
