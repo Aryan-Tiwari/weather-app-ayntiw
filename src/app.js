@@ -21,12 +21,20 @@ app.use(express.static(publicStaticDirPath))
 
 
 app.get('', (req, res)=>{
-    res.send("hi, this is our weather app");
+    res.render('index', {
+        title: 'Weather App'
+    })
 })
 
 // localhost:3000/weather?address=X
 app.get('/weather', (req, res)=>{
     const address = req.query.address
+
+    if(!address){
+        return res.send({
+            error: "You must enter address in search text box"
+        })
+    }
 
     weatherData(address, (error, {temprature, description, cityName})=>{
         if(error){
