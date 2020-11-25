@@ -1,15 +1,15 @@
 const express = require('express')
 const hbs = require('hbs')
 const path = require('path')
-const weatherData = require('../utils/weatherData')
+const weatherData = require('./utils/weatherData')
 const app = express()
 
 
 
 const PORT = process.env.PORT || 5000
-const publicStaticDirPath = path.join(__dirname, '../public')
-const viewsPath = path.join(__dirname, '../templates/views')
-const partialsPath = path.join(__dirname, '../templates/partials')
+const publicStaticDirPath = path.join(__dirname, './public')
+const viewsPath = path.join(__dirname, './templates/views')
+const partialsPath = path.join(__dirname, './templates/partials')
 
 
 
