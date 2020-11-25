@@ -42,7 +42,7 @@ app.get('/weather', (req, res)=>{
                 error
             })
         }
-        console.log(temperature, description, cityName);
+        // console.log(temperature, description, cityName);
         res.send({
             temperature,
             description,

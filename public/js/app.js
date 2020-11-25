@@ -22,7 +22,7 @@ weatherForm.addEventListener('submit', (event)=>{
     const locationApi = fetchWeather + "?address=" + search.value;
     fetch(locationApi).then(response => {
         response.json().then(data => {
-            console.log(data)
+            // console.log(data)
             if(data.error){
                 locationElement.textContent = data.error
                 tempElement.textContent = ""
